@@ -4,6 +4,7 @@ from alembic import context
 from tables.base import Base
 from tables.farmer import Farmer # noqa
 from tables.crops import Crop # noqa
+from tables.user import User # noqa
 
 
 # Alembic Config object, which provides access to the .ini file in use
