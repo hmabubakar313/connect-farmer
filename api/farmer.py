@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from tables.farmer import Farmer as FarmerTable  # SQLAlchemy model
+from tables.farmer import Farmer as FarmerTable
 from db.data.db.db import get_db
-from models.farm import FarmerCreate, FarmerRead
+from models.farmer import FarmerCreate, FarmerRead
 from uuid import uuid4
 from tables.crops import Crop
 

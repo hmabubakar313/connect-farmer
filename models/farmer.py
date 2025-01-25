@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 from uuid import UUID
 from typing import Optional, List
 
@@ -8,7 +8,7 @@ class FarmerCreate(BaseModel):
     age: int
     location: str
     land: float
-    crops: Optional[List[UUID]] = []  # Expect list of Crop IDs (Foreign Keys)
+    crops: Optional[List[UUID]] = []
 
 
 class FarmerRead(BaseModel):
@@ -17,7 +17,7 @@ class FarmerRead(BaseModel):
     age: int
     location: str
     land: float
-    crops: List[str]  # Convert Crop UUIDs to Crop Names
+    crops: List[str]
 
     class Config:
-        orm_mode = True  # Enable SQLAlchemy to Pydantic co
+        orm_mode = True
