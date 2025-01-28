@@ -7,7 +7,6 @@ from datetime import datetime
 from .base import Base
 
 
-# Enum for crop types
 class CropType(Enum):
     FRUIT = "Fruit"
     VEGETABLE = "Vegetable"
@@ -17,7 +16,7 @@ class CropType(Enum):
 
 
 class Crop(Base):
-    __tablename__ = 'crops'  # Modify the table name as needed
+    __tablename__ = 'crops'
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     crop_name = Column(String, nullable=False)
@@ -28,10 +27,8 @@ class Crop(Base):
     crops_location = Column(String, nullable=False)
     crops_date = Column(DateTime, default=datetime.utcnow)
 
-    # Foreign Key to Farmer model (assuming Farmer model exists)
     crops_farmer = Column(UUID(as_uuid=True), ForeignKey('farmer.id'), nullable=False) # noqa
 
-    # Define relationship with the Farmer model (if needed)
     farmer = relationship('Farmer', back_populates='crops')
 
     def __repr__(self):
