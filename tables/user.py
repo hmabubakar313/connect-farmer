@@ -6,7 +6,6 @@ from enum import Enum as BaseEnum
 from .base import Base
 
 
-# Enum for user roles
 class UserRole(BaseEnum):
     FARMER = "farmer"
     VENDOR = "vendor"

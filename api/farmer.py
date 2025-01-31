@@ -9,6 +9,7 @@ from tables.farmer import Farmer
 
 router = APIRouter()
 
+
 @router.post("/item/", response_model=FarmerRead)
 def create_farmer(farmer: FarmerCreate, db: Session = Depends(get_db)):
     new_farmer = Farmer(
@@ -26,15 +27,15 @@ def create_farmer(farmer: FarmerCreate, db: Session = Depends(get_db)):
     crops = []
     for crop_name in crop_names:
         crop = db.query(Crop).filter(Crop.crop_name == crop_name).first()
-        
+
         if not crop:
             crop = Crop(
                 crop_name=crop_name,
-                crops_type="Unknown",
+                crops_type=" ",
                 crops_quantity=0,
                 crops_price=0.0,
-                crops_quality="Unknown",
-                crops_location="Unknown",
+                crops_quality=" ",
+                crops_location=" ",
                 crops_farmer=new_farmer.id
             )
             db.add(crop)
@@ -67,20 +68,10 @@ def get_item(farmer_id: UUID, db: Session = Depends(get_db)):
 
 @router.get("/list/", response_model=List[FarmerRead])
 def get_list(db: Session = Depends(get_db)):
-    try:
-        farmers = db.query(Farmer).all()
-        
-        # Prepare the response by extracting crop names from each farmer's crops
-        for farmer in farmers:
-            # Update the farmer's crops with a list of crop names (strings)
-            farmer.crops = [crop.crop_name for crop in farmer.crops]
-        
-        return farmers
-    except Exception as e:
-        import traceback
-        print(traceback.format_exc())
-        raise HTTPException(status_code=500, detail="Internal Server Error")
-
+    farmers = db.query(Farmer).all()
+    for farmer in farmers:
+        farmer.crops = [crop.crop_name for crop in farmer.crops]
+    return farmers
 
 
 @router.put("/item/{farmer_id}/", response_model=FarmerRead)

@@ -1,6 +1,5 @@
 from pydantic import BaseModel
 from uuid import UUID
-from typing import Optional, List
 
 
 class FarmerCreate(BaseModel):
@@ -8,7 +7,7 @@ class FarmerCreate(BaseModel):
     age: int | None
     location: str | None
     land: float | None
-    crops: List[str] = []
+    crops: list[str] = []
 
 
 class FarmerRead(BaseModel):
@@ -17,7 +16,7 @@ class FarmerRead(BaseModel):
     age: int
     location: str
     land: float
-    crops: List[str]
+    crops: list[str]
 
     class Config:
         orm_mode = True
@@ -25,7 +24,7 @@ class FarmerRead(BaseModel):
 
 class FarmerWithCropsResponse(BaseModel):
     name: str
-    crops: List[str]  # List of crop names
+    crops: list[str]
 
     class Config:
         orm_mode = True
@@ -33,7 +32,7 @@ class FarmerWithCropsResponse(BaseModel):
 
 class FarmerWithCrops(BaseModel):
     name: str
-    crops: List[str]
+    crops: list[str]
 
     class Config:
         orm_mode = True
