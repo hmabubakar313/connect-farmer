@@ -13,6 +13,7 @@ class CreateUser(BaseModel):
     class Config:
         orm_mode = True
 
+
 class ReadUser(BaseModel):
     id: UUID
     name: str

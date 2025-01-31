@@ -20,7 +20,7 @@ class Crop(Base):
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     crop_name = Column(String, nullable=False)
-    crops_type = Column(String, nullable=False)  # Enum field as string
+    crops_type = Column(String, nullable=False)
     crops_quantity = Column(Float, nullable=False)
     crops_price = Column(Float, nullable=False)
     crops_quality = Column(String, nullable=False)
