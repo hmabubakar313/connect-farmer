@@ -5,6 +5,7 @@ from tables.base import Base
 from tables.farmer import Farmer # noqa
 from tables.crops import Crop # noqa
 from tables.user import User # noqa
+from tables.vendor import Vendor
 
 
 # Alembic Config object, which provides access to the .ini file in use
