@@ -15,7 +15,7 @@ class FarmerRead(BaseModel):
     name: str
     age: int
     location: str
-    land: float
+    land: int
     crops: list[str]
 
     class Config:
