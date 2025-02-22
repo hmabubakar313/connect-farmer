@@ -20,6 +20,7 @@ class ReadUser(BaseModel):
     username: str
     email: str
     role: str | None
+    password: str
 
     class Config:
         orm_mode = True

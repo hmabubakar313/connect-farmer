@@ -9,6 +9,13 @@ export default function Home() {
       <Link href="/crops">
         <button>Go to Crops</button>
       </Link>
+      <br></br>
+      <Link href="/farmers">
+        <button>Go to farmers</button>
+      </Link>
+      <Link href="/users">
+        <button>Go to farmers</button>
+      </Link>
     </div>
   );
 }
