@@ -7,14 +7,15 @@ export default function Home() {
     <div>
       <h1>Main App</h1>
       <Link href="/crops">
-        <button>Go to Crops</button>
+        <button>Crops</button>
       </Link>
       <br></br>
       <Link href="/farmers">
-        <button>Go to farmers</button>
+        <button>Farmers</button>
       </Link>
+      <br></br>
       <Link href="/users">
-        <button>Go to farmers</button>
+        <button>Users</button>
       </Link>
     </div>
   );

@@ -33,7 +33,7 @@ export default function Farmers() {
 
   return (
     <div>
-      <h2 className="text-xl font-bold mb-4">Farmers List</h2>
+      <h2 className="text-xl font-bold mb-4">User List</h2>
       {farmers.map((farmer) => (
         <div key={farmer.id} className="bg-primary p-4 my-2 rounded shadow">
           <h3 className="text-lg font-semibold">Name: {farmer.name}</h3>

@@ -69,16 +69,12 @@ def get_item(farmer_id: UUID, db: Session = Depends(get_db)):
 @router.get("/list/", response_model=List[FarmerRead])
 def get_list(db: Session = Depends(get_db)):
     farmers = db.query(Farmer).all()
-    print("11", farmers)
-    print(type(farmers), 'as')
-    
     result = []
     for farmer in farmers:
-        # Build a dictionary for each farmer, now including the 'age' field.
         farmer_data = {
             "id": farmer.id,
             "name": farmer.name,
-            "age": farmer.age,  # <-- Added the age field
+            "age": farmer.age,
             "location": farmer.location,
             "land": getattr(farmer, "land", "unknown"),
             "crops": [crop.crop_name for crop in farmer.crops],
