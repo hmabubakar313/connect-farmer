@@ -57,6 +57,12 @@ Start the development server:
 
 Access the API documentation: Open http://127.0.0.1:8000/docs in your browser.
 
+<hr>
+Design
+<hr>
 
+We are actively working on the UI/UX design to ensure a seamless user experience. Here is the [Design](https://www.figma.com/design/mnDQVJ49yReQxtGwtBEA02/Agricultural-Products-Rural-Entrepreneurship%E2%80%AFManagement-System--AgriConnect-Hub--Community-)
 
+<hr>
 
+Any contribution from you is welcome
