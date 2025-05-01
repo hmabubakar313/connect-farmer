@@ -174,89 +174,190 @@ function Wishlist() {
           </div>
         </div>
         <div className="w-full px-4 py-6 bg-white">
-  {/* Heading */}
-  <div className="flex justify-center mb-6">
-    <h1 className="text-2xl font-bold text-gray-800">My Wishlist</h1>
-  </div>
-
-  {/* Table */}
-  <div className="flex justify-center">
-  <table className="w-full max-w-5xl text-sm shadow-md bg-white">
-    <thead className="bg-gray-100 text-black">
-      <tr>
-        <th className="px-4 py-2 text-left">Product</th>
-        <th className="px-4 py-2 text-left">Price</th>
-        <th className="px-4 py-2 text-left">Status</th>
-        <th className="px-4 py-2 text-center">Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr className="hover:bg-gray-50 border-b border-gray-200">
-        <td className="px-4 py-2">
-          <div className="flex items-center space-x-3">
-            <Image src="/wishlist_veg.png" width={50} height={50} alt="Product" className="w-12 h-12" />
-            <p className="text-gray-800 font-medium">Green Capsicum</p>
+          {/* Heading */}
+          <div className="flex justify-center mb-6">
+            <h1 className="text-2xl font-bold text-gray-800">My Wishlist</h1>
           </div>
-        </td>
-        <td className="px-4 py-2 text-gray-800">1499</td>
-        <td className="px-4 py-2">
-          <span className="bg-green-100 text-green-700 px-3 py-1 rounded text-xs font-medium">In Stock</span>
-        </td>
-        <td className="px-4 py-2">
-          <div className="flex justify-center items-center space-x-3">
-            <button className="bg-green-600 hover:bg-green-700 text-white text-xs font-semibold px-4 py-1 rounded-full">
-              Add to Cart
-            </button>
-            <button className="text-gray-400 hover:text-gray-600 text-xl leading-none">×</button>
+
+          {/* Table */}
+          <div className="flex justify-center">
+            <table className="w-full max-w-5xl text-sm shadow-md bg-white">
+              <thead className="bg-gray-100 text-black">
+                <tr>
+                  <th className="px-4 py-2 text-left">Product</th>
+                  <th className="px-4 py-2 text-left">Price</th>
+                  <th className="px-4 py-2 text-left">Status</th>
+                  <th className="px-4 py-2 text-center">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="hover:bg-gray-50 border-b border-gray-200">
+                  <td className="px-4 py-2">
+                    <div className="flex items-center space-x-3">
+                      <Image
+                        src="/wishlist_veg.png"
+                        width={50}
+                        height={50}
+                        alt="Product"
+                        className="w-12 h-12"
+                      />
+                      <p className="text-gray-800 font-medium">
+                        Green Capsicum
+                      </p>
+                    </div>
+                  </td>
+                  <td className="px-4 py-2 text-gray-800">1499</td>
+                  <td className="px-4 py-2">
+                    <span className="bg-green-100 text-green-700 px-3 py-1 rounded text-xs font-medium">
+                      In Stock
+                    </span>
+                  </td>
+                  <td className="px-4 py-2">
+                    <div className="flex justify-center items-center space-x-3">
+                      <button className="bg-green-600 hover:bg-green-700 text-white text-xs font-semibold px-4 py-1 rounded-full">
+                        Add to Cart
+                      </button>
+                      <button className="text-gray-400 hover:text-gray-600 text-xl leading-none">
+                        ×
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr className="hover:bg-gray-50 border-b border-gray-200">
+                  <td className="px-4 py-2">
+                    <div className="flex items-center space-x-3">
+                      <Image
+                        src="/wishlist_veg.png"
+                        width={50}
+                        height={50}
+                        alt="Product"
+                        className="w-12 h-12"
+                      />
+                      <p className="text-gray-800 font-medium">
+                        Fresh Sujapuri Mango
+                      </p>
+                    </div>
+                  </td>
+                  <td className="px-4 py-2 text-gray-800">89.99</td>
+                  <td className="px-4 py-2">
+                    <span className="bg-red-100 text-red-700 px-3 py-1 rounded text-xs font-medium">
+                      Out of Stock
+                    </span>
+                  </td>
+                  <td className="px-4 py-2">
+                    <div className="flex justify-center items-center space-x-3">
+                      <button
+                        className="bg-gray-300 text-gray-500 text-xs font-semibold px-4 py-1 rounded-full cursor-not-allowed"
+                        disabled
+                      >
+                        Add to Cart
+                      </button>
+                      <button className="text-gray-400 hover:text-gray-600 text-xl leading-none">
+                        ×
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+
+                {/* Place Order Button on Last Border */}
+                <tr className="border-t border-gray-200">
+                  <td colSpan={4} className="py-6">
+                    <div className="flex justify-center">
+                      <button className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-full shadow-md">
+                        Place Order
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-        </td>
-      </tr>
-
-      <tr className="hover:bg-gray-50 border-b border-gray-200">
-        <td className="px-4 py-2">
-          <div className="flex items-center space-x-3">
-            <Image src="/wishlist_veg.png" width={50} height={50} alt="Product" className="w-12 h-12" />
-            <p className="text-gray-800 font-medium">Fresh Sujapuri Mango</p>
-          </div>
-        </td>
-        <td className="px-4 py-2 text-gray-800">89.99</td>
-        <td className="px-4 py-2">
-          <span className="bg-red-100 text-red-700 px-3 py-1 rounded text-xs font-medium">Out of Stock</span>
-        </td>
-        <td className="px-4 py-2">
-          <div className="flex justify-center items-center space-x-3">
-            <button className="bg-gray-300 text-gray-500 text-xs font-semibold px-4 py-1 rounded-full cursor-not-allowed" disabled>
-              Add to Cart
-            </button>
-            <button className="text-gray-400 hover:text-gray-600 text-xl leading-none">×</button>
-          </div>
-        </td>
-      </tr>
-
-      {/* Place Order Button on Last Border */}
-      <tr className="border-t border-gray-200">
-  <td colSpan={4} className="py-6">
-    <div className="flex justify-center">
-      <button
-        className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-full shadow-md"
-      >
-        Place Order
-      </button>
-    </div>
-  </td>
-</tr>
-
-
-
-    </tbody>
-  </table>
-</div>
-
-
-</div>
-
+        </div>
       </div>
-      
+      <footer className="bg-black text-gray-300">
+        <div
+          className="
+      max-w-7xl mx-auto px-6 py-12
+      grid grid-cols-1 md:grid-cols-4 gap-8
+      items-start
+      text-center md:text-left
+    "
+        >
+          {/* Logo & Description */}
+          <div className="flex flex-col items-center md:items-start space-y-4">
+            <div className="flex items-center space-x-2 justify-center md:justify-start">
+              <svg
+                className="w-8 h-8 text-green-400"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 504.125 504.125"
+              >
+                <path
+                  fill="#3A7F0D"
+                  d="M339.772,0c0,0,44.536,108.954-146.337,182.138C89.719,221.893,10.059,323.789,105.173,481.193
+               c7.877-70.357,41.653-225.485,186.888-260.884c0,0-135.176,50.546-147.117,279.347c69.459,9.752,232.361,16.305,280.726-125.062
+               C489.536,187.817,339.772,0,339.772,0z"
+                />
+                <path
+                  fill="#49A010"
+                  d="M145.007,498.704c147.456-58.849,254.748-196.71,269.556-361.283C384.418,56.107,339.772,0,339.772,0
+               s44.536,108.954-146.337,182.138C89.719,221.893,10.059,323.789,105.173,481.193c7.877-70.357,41.653-225.485,186.888-260.884
+               C292.053,220.31,157.279,270.73,145.007,498.704z"
+                />
+                <circle fill="#3A7F0D" cx="90.459" cy="171.985" r="13.785" />
+                <g fill="#49A010">
+                  <circle cx="133.782" cy="158.2" r="9.846" />
+                  <circle cx="124.921" cy="64.662" r="24.615" />
+                  <circle cx="200.736" cy="120.785" r="7.877" />
+                  <circle cx="266.713" cy="76.477" r="22.646" />
+                </g>
+              </svg>
+              <span className="text-white text-xl font-semibold">
+                AgriConnect HUB
+              </span>
+            </div>
+            <p className="text-sm leading-relaxed">
+              Agricultural Products Rural Entrepreneurship Management System:
+              AgriConnect Hub
+            </p>
+          </div>
+
+          <div>
+            <div className="text-left">
+              <ul className="space-y-2 text-sm text-white">
+                <li className="pb-2">My Account</li>
+                <li>Order History</li>
+                <li>Shopping Cart</li>
+                <li>Wishlist</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <div className="text-left">
+              <ul className="space-y-2 text-sm text-white">
+                <li className="pb-2">My Account</li>
+                <li>Order History</li>
+                <li>Shopping Cart</li>
+                <li>Wishlist</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <div className="text-left">
+              <ul className="space-y-2 text-sm text-white">
+                <li className="pb-2">My Account</li>
+                <li>Order History</li>
+                <li>Shopping Cart</li>
+                <li>Wishlist</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <hr className="border-gray-700 mx-6" />
+      </footer>
     </>
   );
 }
