@@ -7,7 +7,7 @@ import { IoCallOutline } from "react-icons/io5";
 import { IoMdHome } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 
-function Wishlist() {
+function Checkout() {
   return (
     <>
       <div className="bg-white min-h-screen">
@@ -62,9 +62,7 @@ function Wishlist() {
                 className="w-8 h-8 text-green-400"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 504.125 504.125"
-              >
-
-              </svg>
+              ></svg>
               <span className="text-2xl font-semibold text-black">
                 AgriConnect
               </span>
@@ -104,7 +102,7 @@ function Wishlist() {
             <div className="flex items-center space-x-4 ml-auto mr-56">
               <CiHeart size={30} color="black" />
               <span className="text-gray-400 mx-2 text-2xl">|</span>
-              <IoBagOutline size={30} color="black"/>
+              <IoBagOutline size={30} color="black" />
               <div className="flex flex-col ml-1 leading-tight text-black">
                 <p>Shopping Cart:</p>
                 <p>570</p>
@@ -166,115 +164,249 @@ function Wishlist() {
             className="w-full h-full object-cover"
           />
 
-          {/* Icon on the left side */}
           <div className="absolute top-1/2 left-4 transform -translate-y-1/2 flex items-center space-x-2">
             <IoMdHome className="text-white text-xl ml-32" />
             <IoIosArrowForward className="text-white text-xl" />
-            <p>Wishlist</p>
+            <p className="bg-green">Shopping Cart</p>
+            <IoIosArrowForward className="text-white text-xl" />
+            <p>Checkout</p>
           </div>
         </div>
-        <div className="w-full px-4 py-6 bg-white">
+        <p className="text-black  text-center mt-2">Billing Information</p>
+        <div className="max-w-7xl mx-auto px-6 py-8">
+          <div className="flex flex-row justify-between items-start gap-8">
+            <div className="w-2/3">
+              <form className="flex flex-col space-y-4">
+                <div className="flex space-x-4">
+                  <div className="flex flex-col w-full">
+                    <label
+                      htmlFor="firstName"
+                      className="mb-1 text-sm font-medium text-gray-700"
+                    >
+                      First Name
+                    </label>
+                    <input
+                      id="firstName"
+                      name="firstName"
+                      type="text"
+                      placeholder="Your First Name"
+                      className="border border-gray-300 rounded-lg p-2 w-full"
+                    />
+                  </div>
+                  <div className="flex flex-col w-full">
+                    <label
+                      htmlFor="lastName"
+                      className="mb-1 text-sm font-medium text-gray-700"
+                    >
+                      Last Name
+                    </label>
+                    <input
+                      id="lastName"
+                      name="lastName"
+                      type="text"
+                      placeholder="Your Last Name"
+                      className="border border-gray-300 rounded-lg p-2 w-full"
+                    />
+                  </div>
+                  <div className="flex flex-col w-full">
+                    <label
+                      htmlFor="company"
+                      className="mb-1 text-sm font-medium text-gray-700"
+                    >
+                      Company Name
+                    </label>
+                    <input
+                      id="company"
+                      name="company"
+                      type="text"
+                      placeholder="Your Company Name"
+                      className="border border-gray-300 rounded-lg p-2 w-full"
+                    />
+                  </div>
+                </div>
 
-          <div className="flex justify-center mb-6">
-            <h1 className="text-2xl font-bold text-gray-800">My Wishlist</h1>
-          </div>
+                <div className="flex flex-col w-full">
+                  <label
+                    htmlFor="email"
+                    className="mb-1 text-sm font-medium text-gray-700"
+                  >
+                    Email Address
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="Your Email Address"
+                    className="border border-gray-300 rounded-lg p-2 w-full"
+                  />
+                </div>
 
-          
-          <div className="flex justify-center">
-            <table className="w-full max-w-5xl text-sm shadow-md bg-white">
-              <thead className="bg-gray-100 text-black">
-                <tr>
-                  <th className="px-4 py-2 text-left">Product</th>
-                  <th className="px-4 py-2 text-left">Price</th>
-                  <th className="px-4 py-2 text-left">Status</th>
-                  <th className="px-4 py-2 text-center">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="hover:bg-gray-50 border-b border-gray-200">
-                  <td className="px-4 py-2">
-                    <div className="flex items-center space-x-3">
-                      <Image
-                        src="/wishlist_veg.png"
-                        width={50}
-                        height={50}
-                        alt="Product"
-                        className="w-12 h-12"
-                      />
-                      <p className="text-gray-800 font-medium">
-                        Green Capsicum
-                      </p>
-                    </div>
-                  </td>
-                  <td className="px-4 py-2 text-gray-800">1499</td>
-                  <td className="px-4 py-2">
-                    <span className="bg-green-100 text-green-700 px-3 py-1 rounded text-xs font-medium">
-                      In Stock
+                <div className="flex space-x-4">
+                  <div className="flex flex-col w-full">
+                    <label
+                      htmlFor="country"
+                      className="mb-1 text-sm font-medium text-gray-700"
+                    >
+                      Country
+                    </label>
+                    <input
+                      id="country"
+                      name="country"
+                      type="text"
+                      placeholder="Country"
+                      className="border border-gray-300 rounded-lg p-2 w-full"
+                    />
+                  </div>
+                  <div className="flex flex-col w-full">
+                    <label
+                      htmlFor="state"
+                      className="mb-1 text-sm font-medium text-gray-700"
+                    >
+                      State
+                    </label>
+                    <input
+                      id="state"
+                      name="state"
+                      type="text"
+                      placeholder="State"
+                      className="border border-gray-300 rounded-lg p-2 w-full"
+                    />
+                  </div>
+                  <div className="flex flex-col w-full">
+                    <label
+                      htmlFor="zip"
+                      className="mb-1 text-sm font-medium text-gray-700"
+                    >
+                      Zip Code
+                    </label>
+                    <input
+                      id="zip"
+                      name="zip"
+                      type="text"
+                      placeholder="Zip Code"
+                      className="border border-gray-300 rounded-lg p-2 w-full"
+                    />
+                  </div>
+                </div>
+
+                <div className="flex flex-col w-full">
+                  <label
+                    htmlFor="phone"
+                    className="mb-1 text-sm font-medium text-gray-700"
+                  >
+                    Phone Number
+                  </label>
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="text"
+                    placeholder="Your Phone Number"
+                    className="border border-gray-300 rounded-lg p-2 w-full"
+                  />
+                </div>
+
+                <div className="flex items-center space-x-2">
+                  <input
+                    id="ship-different"
+                    name="shipDifferent"
+                    type="checkbox"
+                    className="accent-green-500"
+                  />
+                  <label htmlFor="ship-different" className="text-gray-800">
+                    Ship to Different Address
+                  </label>
+                </div>
+              </form>
+            </div>
+
+            <div className="w-1/3 bg-white shadow-lg rounded-lg p-4">
+              <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
+
+              <ul className="space-y-2">
+                <li className="flex items-center justify-between">
+                  <div className="flex items-center">
+                    <Image
+                      src="/wishlist_veg.png"
+                      alt="Green Capsicum"
+                      className="w-12 h-12 object-cover rounded"
+                      width={50}
+                      height={50}
+                    />
+                    <span className="ml-2 text-gray-800">
+                      Green Capsicum <span className="font-medium">x5</span>
                     </span>
-                  </td>
-                  <td className="px-4 py-2">
-                    <div className="flex justify-center items-center space-x-3">
-                      <button className="bg-green-600 hover:bg-green-700 text-white text-xs font-semibold px-4 py-1 rounded-full">
-                        Add to Cart
-                      </button>
-                      <button className="text-gray-400 hover:text-gray-600 text-xl leading-none">
-                        ×
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-
-                <tr className="hover:bg-gray-50 border-b border-gray-200">
-                  <td className="px-4 py-2">
-                    <div className="flex items-center space-x-3">
-                      <Image
-                        src="/wishlist_veg.png"
-                        width={50}
-                        height={50}
-                        alt="Product"
-                        className="w-12 h-12"
-                      />
-                      <p className="text-gray-800 font-medium">
-                        Fresh Sujapuri Mango
-                      </p>
-                    </div>
-                  </td>
-                  <td className="px-4 py-2 text-gray-800">89.99</td>
-                  <td className="px-4 py-2">
-                    <span className="bg-red-100 text-red-700 px-3 py-1 rounded text-xs font-medium">
-                      Out of Stock
+                  </div>
+                  <span className="font-medium text-gray-900">70.00</span>
+                </li>
+                <li className="flex items-center justify-between">
+                  <div className="flex items-center">
+                    <Image
+                      src="/wishlist_veg.png"
+                      alt="Red Capsicum"
+                      className="w-12 h-12 object-cover rounded"
+                      width={50}
+                      height={50}
+                    />
+                    <span className="ml-2 text-gray-800">
+                      Red Capsicum <span className="font-medium">x1</span>
                     </span>
-                  </td>
-                  <td className="px-4 py-2">
-                    <div className="flex justify-center items-center space-x-3">
-                      <button
-                        className="bg-gray-300 text-gray-500 text-xs font-semibold px-4 py-1 rounded-full cursor-not-allowed"
-                        disabled
-                      >
-                        Add to Cart
-                      </button>
-                      <button className="text-gray-400 hover:text-gray-600 text-xl leading-none">
-                        ×
-                      </button>
-                    </div>
-                  </td>
-                </tr>
+                  </div>
+                  <span className="font-medium text-gray-900">14.00</span>
+                </li>
+              </ul>
 
-                
-                <tr className="border-t border-gray-200">
-                  <td colSpan={4} className="py-6">
-                    <div className="flex justify-center">
-                      <button className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-full shadow-md">
-                        Place Order
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+              <div className="mt-4 space-y-1 text-gray-700">
+                <div className="flex justify-between">
+                  <span>Subtotal:</span>
+                  <span>84.00</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Shipping:</span>
+                  <span className="font-semibold">Free</span>
+                </div>
+                <div className="border-t pt-1 flex justify-between text-lg font-semibold text-gray-900">
+                  <span>Total:</span>
+                  <span>84.00</span>
+                </div>
+              </div>
+
+              <div className="mt-4">
+                <h3 className="text-lg font-semibold mb-2">Payment Method</h3>
+                <label className="flex items-center space-x-2 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="payment"
+                    className="h-5 w-5 accent-green-500"
+                  />
+                  <span className="text-gray-800">Cash on Delivery</span>
+                </label>
+              </div>
+
+              <button
+                type="button"
+                className="mt-4 w-full py-2 rounded-full bg-green-500 text-white font-semibold"
+              >
+                Place Order
+              </button>
+            </div>
           </div>
+          <div className="mt-8 text-black w-full">
+  <h2 className="text-lg font-semibold mb-2">Additional Information</h2>
+  <br className="" />
+  <label htmlFor="order-notes" className="block mb-2 text-sm font-medium text-gray-700">
+    Order Notes (optional)
+  </label>
+  <textarea
+    id="order-notes"
+    className="border border-gray-300 rounded-lg p-2 w-full h-24"
+    placeholder="Notes about your order, e.g. special notes for delivery."
+  ></textarea>
+</div>
+
         </div>
+        
       </div>
+
       <footer className="bg-black text-gray-300">
         <div
           className="
@@ -284,7 +416,6 @@ function Wishlist() {
       text-center md:text-left
     "
         >
-          
           <div className="flex flex-col items-center md:items-start space-y-4">
             <div className="flex items-center space-x-2 justify-center md:justify-start">
               <svg
@@ -362,4 +493,4 @@ function Wishlist() {
   );
 }
 
-export default Wishlist;
+export default Checkout;

@@ -68,24 +68,21 @@ def get_item(farmer_id: UUID, db: Session = Depends(get_db)):
 
 @router.get("/list/", response_model=List[FarmerRead])
 def get_list(db: Session = Depends(get_db)):
-    try:
-        farmers = db.query(Farmer).all()
-        result = []
-        for farmer in farmers:
-            farmer_data = {
-                "id": farmer.id,
-                "name": farmer.name,
-                "age": farmer.age,
-                "location": farmer.location,
-                "land": getattr(farmer, "land", "unknown"),
-                "crops": [crop.crop_name for crop in farmer.crops],
-            }
-            result.append(farmer_data)
-        
-        return result
-    except Exception as e:
-        import traceback
-        traceback.print_exc()
+    farmers = db.query(Farmer).all()
+    result = []
+    for farmer in farmers:
+        farmer_data = {
+            "id": farmer.id,
+            "name": farmer.name,
+            "age": farmer.age,
+            "location": farmer.location,
+            "land": getattr(farmer, "land", "unknown"),
+            "crops": [crop.crop_name for crop in farmer.crops],
+        }
+        result.append(farmer_data)
+    
+    return result
+
 
 
 @router.put("/item/{farmer_id}/", response_model=FarmerRead)
