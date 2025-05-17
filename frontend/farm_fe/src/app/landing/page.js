@@ -29,16 +29,16 @@ const Landing = () => {
             <div className="flex mt-3">
               <button
                 type="button"
-                className="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 
-            focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm 
+                className="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500
+            focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm
             px-2 py-3 mt-4 ml-5 w-20 dark:focus:ring-yellow-900"
               >
                 Sell Here
               </button>
               <button
                 type="button"
-                className="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 
-            focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm 
+                className="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500
+            focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm
             px-2 py-2 mt-4 ml-5 w-20 dark:focus:ring-yellow-900"
               >
                 Buy Here

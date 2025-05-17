@@ -1,9 +1,11 @@
-from fastapi import APIRouter, Depends, HTTPException
-from sqlalchemy.orm import Session
-from uuid import UUID, uuid4
 from typing import List
+from uuid import UUID, uuid4
+
+from authentication.auth import get_current_user
 from db.data.db.db import get_db
-from models.farmer import FarmerCreate, FarmerRead, FarmerWithCrops, FarmerWithCropsResponse 
+from fastapi import APIRouter, Depends, HTTPException
+from models.farmer import FarmerCreate, FarmerRead
+from sqlalchemy.orm import Session
 from tables.crops import Crop
 from tables.farmer import Farmer
 
@@ -11,13 +13,17 @@ router = APIRouter()
 
 
 @router.post("/item/", response_model=FarmerRead)
-def create_farmer(farmer: FarmerCreate, db: Session = Depends(get_db)):
+def create_farmer(
+    farmer: FarmerCreate,
+    db: Session = Depends(get_db),
+    current_user: dict = Depends(get_current_user),
+):
     new_farmer = Farmer(
         id=uuid4(),
         name=farmer.name,
         age=farmer.age,
         location=farmer.location,
-        land=farmer.land
+        land=farmer.land,
     )
     db.add(new_farmer)
     db.commit()
@@ -36,7 +42,7 @@ def create_farmer(farmer: FarmerCreate, db: Session = Depends(get_db)):
                 crops_price=0.0,
                 crops_quality=" ",
                 crops_location=" ",
-                crops_farmer=new_farmer.id
+                crops_farmer=new_farmer.id,
             )
             db.add(crop)
             db.commit()
@@ -54,12 +60,16 @@ def create_farmer(farmer: FarmerCreate, db: Session = Depends(get_db)):
         age=new_farmer.age,
         location=new_farmer.location,
         land=new_farmer.land,
-        crops=crop_names
+        crops=crop_names,
     )
 
 
 @router.get("/item/{farmer_id}", response_model=FarmerRead)
-def get_item(farmer_id: UUID, db: Session = Depends(get_db)):
+def get_item(
+    farmer_id: UUID,
+    db: Session = Depends(get_db),
+    current_user: dict = Depends(get_current_user),
+):
     farmer = db.query(Farmer).filter(Farmer.id == farmer_id).first()
     if not farmer:
         raise HTTPException(status_code=404, detail="Farmer not found")
@@ -67,7 +77,9 @@ def get_item(farmer_id: UUID, db: Session = Depends(get_db)):
 
 
 @router.get("/list/", response_model=List[FarmerRead])
-def get_list(db: Session = Depends(get_db)):
+def get_list(
+    db: Session = Depends(get_db), current_user: dict = Depends(get_current_user)
+):
     farmers = db.query(Farmer).all()
     result = []
     for farmer in farmers:
@@ -80,13 +92,17 @@ def get_list(db: Session = Depends(get_db)):
             "crops": [crop.crop_name for crop in farmer.crops],
         }
         result.append(farmer_data)
-    
+
     return result
 
 
-
 @router.put("/item/{farmer_id}/", response_model=FarmerRead)
-def update_farmer(farmer_id: UUID, farmer_data: FarmerCreate, db: Session = Depends(get_db)):
+def update_farmer(
+    farmer_id: UUID,
+    farmer_data: FarmerCreate,
+    db: Session = Depends(get_db),
+    current_user: dict = Depends(get_current_user),
+):
     farmer = db.query(Farmer).filter(Farmer.id == farmer_id).first()
     if not farmer:
         raise HTTPException(status_code=404, detail="Farmer not found")
@@ -101,7 +117,11 @@ def update_farmer(farmer_id: UUID, farmer_data: FarmerCreate, db: Session = Depe
 
 
 @router.delete("/item/{farmer_id}/")
-def delete_farmer(farmer_id: UUID, db: Session = Depends(get_db)):
+def delete_farmer(
+    farmer_id: UUID,
+    db: Session = Depends(get_db),
+    current_user: dict = Depends(get_current_user),
+):
     farmer = db.query(Farmer).filter(Farmer.id == farmer_id).first()
     if not farmer:
         raise HTTPException(status_code=404, detail="Farmer not found")

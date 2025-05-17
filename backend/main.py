@@ -1,7 +1,7 @@
-from fastapi import FastAPI
+from api.crops import router as crops_router
 from api.farmer import router as farmer_router
 from api.user import router as user_router
-from api.crops import router as crops_router
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
@@ -15,5 +15,5 @@ app.add_middleware(
     allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"]
+    allow_headers=["*"],
 )

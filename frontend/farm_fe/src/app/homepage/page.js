@@ -399,7 +399,7 @@ const Landing = () => {
 </div>
 
 
-          
+
         </div>
 
         <hr className="border-gray-700 mx-6" />

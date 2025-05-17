@@ -1,18 +1,23 @@
-from fastapi import APIRouter, Depends, HTTPException
-from sqlalchemy.orm import Session
-from uuid import UUID, uuid4
 from typing import List
+from uuid import UUID, uuid4
 
+from authentication.auth import get_current_user
+from db.data.db.db import get_db
+from fastapi import APIRouter, Depends, HTTPException
+from models.crops import CreateCrop, ReadCrop
+from sqlalchemy.orm import Session
 from tables.crops import Crop
 from tables.farmer import Farmer
-from db.data.db.db import get_db
-from models.crops import CreateCrop, ReadCrop
 
 router = APIRouter()
 
 
 @router.post("/item/", response_model=ReadCrop)
-def create_item(crop: CreateCrop, db: Session = Depends(get_db)):
+def create_item(
+    crop: CreateCrop,
+    db: Session = Depends(get_db),
+    current_user: dict = Depends(get_current_user),
+):
     new_crop = Crop(
         id=uuid4(),
         crop_name=crop.crop_name,
@@ -21,7 +26,7 @@ def create_item(crop: CreateCrop, db: Session = Depends(get_db)):
         crops_price=crop.crops_price,
         crops_quality=crop.crops_quality,
         crops_location=crop.crops_location,
-        crops_farmer=crop.crops_farmer
+        crops_farmer=crop.crops_farmer,
     )
     db.add(new_crop)
     db.commit()
@@ -30,20 +35,32 @@ def create_item(crop: CreateCrop, db: Session = Depends(get_db)):
 
 
 @router.get("/item/{crop_id}", response_model=ReadCrop)
-def get_item(crop_id: UUID, db: Session = Depends(get_db)):
+def get_item(
+    crop_id: UUID,
+    db: Session = Depends(get_db),
+    current_user: dict = Depends(get_current_user),
+):
     crop = db.query(Crop).filter(Crop.id == crop_id).first()
     if not crop:
         raise HTTPException(status_code=404, detail="Crop not found")
     return crop
 
+
 @router.get("/list/", response_model=List[ReadCrop])
-def get_list(db: Session = Depends(get_db)):
+def get_list(
+    db: Session = Depends(get_db), current_user: dict = Depends(get_current_user)
+):
     crops = db.query(Crop).all()
     return [ReadCrop.model_validate(crop, from_attributes=True) for crop in crops]
 
 
 @router.put("/item/{crop_id}/", response_model=ReadCrop)
-def update_item(crop_id: UUID, crop_data: CreateCrop, db: Session = Depends(get_db)):
+def update_item(
+    crop_id: UUID,
+    crop_data: CreateCrop,
+    db: Session = Depends(get_db),
+    current_user: dict = Depends(get_current_user),
+):
     crop = db.query(Crop).filter(Crop.id == crop_id).first()
     if not crop:
         raise HTTPException(status_code=404, detail="Crop not found")

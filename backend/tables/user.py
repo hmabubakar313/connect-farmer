@@ -1,8 +1,9 @@
-from sqlalchemy.dialects.postgresql import UUID
 import uuid
-
-from sqlalchemy import Column, String, Enum
 from enum import Enum as BaseEnum
+
+from sqlalchemy import Column, Enum, String
+from sqlalchemy.dialects.postgresql import UUID
+
 from .base import Base
 
 
@@ -12,7 +13,7 @@ class UserRole(BaseEnum):
 
 
 class User(Base):
-    __tablename__ = 'user'
+    __tablename__ = "user"
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     name = Column(String(100), nullable=False)
     username = Column(String(100), nullable=False, unique=True)

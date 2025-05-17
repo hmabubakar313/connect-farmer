@@ -404,7 +404,7 @@ function Checkout() {
 </div>
 
         </div>
-        
+
       </div>
 
       <footer className="bg-black text-gray-300">
