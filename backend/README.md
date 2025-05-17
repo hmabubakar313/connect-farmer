@@ -1,25 +1,25 @@
 # Farmer-Vendor Connect
 
-# Farmer-Vendor Connect (🚧 Work in Progress)  
+# Farmer-Vendor Connect (🚧 Work in Progress)
 
-I am currently developing **Farmer-Vendor Connect**, an open-source and reliable platform designed to bridge the gap between farmers and vendors. The software will allow farmers to share their data, manage crops, and connect with vendors effortlessly. The primary goal is to empower farmers with tools to manage their operations while enabling vendors to access high-quality produce directly.  
+I am currently developing **Farmer-Vendor Connect**, an open-source and reliable platform designed to bridge the gap between farmers and vendors. The software will allow farmers to share their data, manage crops, and connect with vendors effortlessly. The primary goal is to empower farmers with tools to manage their operations while enabling vendors to access high-quality produce directly.
 
-## 🚀 Current Features (Under Development)  
+## 🚀 Current Features (Under Development)
 
-- **Farmer Management**: Store detailed farmer profiles, including location, age, and land details.  
-- **Crop Management**: Add and track crop information like type, quantity, price, quality, and location.  
-- **Vendor Connections**: Facilitate direct interactions between farmers and vendors.  
-- **Data Insights**: Provide actionable insights to improve productivity and trade.  
-- **Secure & Scalable**: Built with best practices to ensure data security and scalability.  
+- **Farmer Management**: Store detailed farmer profiles, including location, age, and land details.
+- **Crop Management**: Add and track crop information like type, quantity, price, quality, and location.
+- **Vendor Connections**: Facilitate direct interactions between farmers and vendors.
+- **Data Insights**: Provide actionable insights to improve productivity and trade.
+- **Secure & Scalable**: Built with best practices to ensure data security and scalability.
 
-## 🛠️ Tech Stack  
+## 🛠️ Tech Stack
 
-- **Backend**: FastAPI, SQLAlchemy  
-- **Frontend**: To be integrated (React.js or similar)  
-- **Database**: PostgreSQL  
-- **ORM**: SQLAlchemy  
+- **Backend**: FastAPI, SQLAlchemy
+- **Frontend**: To be integrated (React.js or similar)
+- **Database**: PostgreSQL
+- **ORM**: SQLAlchemy
 - **Deployment**: Docker, Kubernetes (optional)
-- 
+-
 ## Key Features
 
 - **Farmer Management**: Collect and store detailed farmer profiles, including location, age, and land details.

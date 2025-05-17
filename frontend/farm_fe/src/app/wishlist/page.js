@@ -179,7 +179,7 @@ function Wishlist() {
             <h1 className="text-2xl font-bold text-gray-800">My Wishlist</h1>
           </div>
 
-          
+
           <div className="flex justify-center">
             <table className="w-full max-w-5xl text-sm shadow-md bg-white">
               <thead className="bg-gray-100 text-black">
@@ -260,7 +260,7 @@ function Wishlist() {
                   </td>
                 </tr>
 
-                
+
                 <tr className="border-t border-gray-200">
                   <td colSpan={4} className="py-6">
                     <div className="flex justify-center">
@@ -284,7 +284,7 @@ function Wishlist() {
       text-center md:text-left
     "
         >
-          
+
           <div className="flex flex-col items-center md:items-start space-y-4">
             <div className="flex items-center space-x-2 justify-center md:justify-start">
               <svg

@@ -1,11 +1,12 @@
 from logging.config import fileConfig
-from sqlalchemy import engine_from_config, pool
-from alembic import context
-from tables.base import Base
-from tables.farmer import Farmer # noqa
-from tables.crops import Crop # noqa
-from tables.user import User # noqa
 
+from sqlalchemy import engine_from_config, pool
+from tables.base import Base
+from tables.crops import Crop  # noqa
+from tables.farmer import Farmer  # noqa
+from tables.user import User  # noqa
+
+from alembic import context
 
 # Alembic Config object, which provides access to the .ini file in use
 config = context.config
@@ -38,8 +39,8 @@ def run_migrations_offline() -> None:
 
 def run_migrations_online() -> None:
     """Run migrations in 'online' mode.
-
-    In this scenario, we create an Engine and associate a connection with the context.
+        In this scenario, we create an Engine and
+    `    associate a connection with the context.
     """
     connectable = engine_from_config(
         config.get_section(config.config_ini_section),
