@@ -1,21 +1,5 @@
 from rest_framework import permissions
 
-class RolePermission(permissions.BasePermission):
-    """
-    Allows access only to users with a specific role.
-    Usage in view:
-    permission_classes = [RolePermission]
-    required_roles = ['admin', 'farmer']
-    """
-
-    def has_permission(self, request, view):
-        if not request.user.is_authenticated:
-            return False
-        
-        required_roles = getattr(view, "required_roles", [])
-        return request.user.role in required_roles
-
-
 class IsProfileOwnerOrReadOnly(permissions.BasePermission):
     """
     Custom permission to only allow owners of an object to edit it.

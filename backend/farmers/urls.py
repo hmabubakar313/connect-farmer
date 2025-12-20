@@ -1,8 +1,8 @@
 from rest_framework import routers
 
-from .views import FarmerViewSet
+from .views import FarmerProfileViewSet
 
 router = routers.DefaultRouter()
-router.register(r"farmers", FarmerViewSet, basename="farmer")
+router.register(r"", FarmerProfileViewSet, basename="farmer")
 
 urlpatterns = router.urls
