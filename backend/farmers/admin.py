@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from .models import (
     Category,
-    Farmer,
+    # Farmer,
     FarmerDocument,
     FarmerProfile,
     Product,
@@ -10,11 +10,11 @@ from .models import (
 )
 
 
-@admin.register(Farmer)
-class FarmerAdmin(admin.ModelAdmin):
-    list_display = ("name", "location", "age", "land", "created_at", "updated_at")
-    search_fields = ("name", "location")
-    readonly_fields = ("created_at", "updated_at")
+# @admin.register(Farmer)
+# class FarmerAdmin(admin.ModelAdmin):
+#     list_display = ("name", "location", "age", "land", "created_at", "updated_at")
+#     search_fields = ("name", "location")
+#     readonly_fields = ("created_at", "updated_at")
 
 
 @admin.register(FarmerProfile)
